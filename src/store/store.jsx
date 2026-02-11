@@ -1,4 +1,3 @@
-// store/store.js
 import { configureStore } from "@reduxjs/toolkit";
 import { shopCoApi } from "./shopCoApi";
 import authReducer from "./authSlice";
