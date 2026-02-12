@@ -17,7 +17,7 @@ export default function ProductReviews({ productId }) {
   const [comment, setComment] = useState("");
   const limit = 3;
 
-  // ✅ No page/limit passed (BE returns all reviews)
+  //  No page/limit passed (BE returns all reviews)
   const { data, isLoading } = useGetProductReviewsQuery({ productId });
   const { data: orders, isLoading: ordersLoading } = useGetUserOrdersQuery();
 
@@ -32,7 +32,7 @@ export default function ProductReviews({ productId }) {
     "all order items productIds",
     orders?.orders?.flatMap((o) => o.items.map((i) => i.productId))
   );
-  // ✅ Client-side slicing
+  //  Client-side slicing
   const visibleReviews = data?.reviews?.slice(0, page * limit) || [];
 
   const matchedOrder = orders?.find((order) =>
@@ -51,7 +51,7 @@ export default function ProductReviews({ productId }) {
   const handleSubmit = async () => {
     if (!orderId) {
       toast.error(
-        "⚠️ You need to purchase this product before writing a review."
+        " You need to purchase this product before writing a review."
       );
       return;
     }
@@ -59,19 +59,19 @@ export default function ProductReviews({ productId }) {
     const newReview = {
       productId,
       orderId,
-      rating: Number(rating), // ✅ dynamic rating
-      comment: comment.trim(), // ✅ dynamic comment
+      rating: Number(rating), //  dynamic rating
+      comment: comment.trim(), //  dynamic comment
     };
 
     try {
       const res = await createReview(newReview).unwrap();
-      toast.success("✅ Review submitted successfully!");
+      toast.success(" Review submitted successfully!");
       console.log("Review created:", res);
     } catch (error) {
       const errMsg =
         error?.data?.message || // agar backend se message aa raha ho
         error?.error || // RTK Query ka default error string
-        "❌ Something went wrong"; // fallback
+        " Something went wrong"; // fallback
       toast.error(errMsg);
       console.error("Review error:", error);
     } finally {
@@ -145,7 +145,7 @@ export default function ProductReviews({ productId }) {
               </button>
               <button
                 onClick={handleSubmit}
-                disabled={creatingReview} // ✅ disable while loading
+                disabled={creatingReview} //  disable while loading
                 className={`px-4 py-2 rounded-lg text-white ${
                   creatingReview
                     ? "bg-gray-500 cursor-not-allowed"

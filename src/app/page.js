@@ -15,7 +15,7 @@ const Home = () => {
         <NewArrivals />
       </Suspense>
       <Suspense fallback={<div className="text-center py-10">Loading top selling items...</div>}>
-        <TopSellings />
+        {/* <TopSellings /> */}
       </Suspense>
       <DressStyleBrowse />
     </>

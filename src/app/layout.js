@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// ✅ Optional: Global socket setup
+//  Optional: Global socket setup
 
 import SocketListener from "@/components/SocketListener";
 
@@ -32,9 +32,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-          {/* ✅ Toast Container (global) */}
+          {/*  Toast Container (global) */}
           <ToastContainer position="top-center" autoClose={3000} />
-          {/* ✅ Global socket event listener (notifications) */}
+          {/*  Global socket event listener (notifications) */}
           <SocketListener />
 
           <Header />

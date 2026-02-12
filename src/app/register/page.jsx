@@ -28,7 +28,7 @@ const RegisterPageContent = () => {
     }
   };
 
-  // ✅ Social signup/login (same as login page)
+  //  Social signup/login (same as login page)
   const handleSocialLogin = (provider) => {
     let authUrl = "";
     const backendBaseUrl = "http://localhost:8000"; // update for local

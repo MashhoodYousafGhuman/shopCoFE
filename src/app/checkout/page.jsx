@@ -45,7 +45,7 @@ export default function CheckoutPage() {
     try {
       setOrderLoading(true);
 
-      // 1️⃣ Create Order
+      //  Create Order
       const orderData = {
         items,
         totalAmount,
@@ -55,11 +55,11 @@ export default function CheckoutPage() {
       };
 
       const res = await createOrder(orderData).unwrap();
-      console.log("✅ Order created:", res);
+      console.log(" Order created:", res);
       setOrderId(res._id);
 
       if (formData.paymentMethod === "stripe") {
-        // 2️⃣ Create PaymentIntent
+        // 2️ Create PaymentIntent
         const intentRes = await fetch(
           // "https://shop-co.up.railway.app/payments/create-intent",
           "http://localhost:8000/payments/create-intent",
@@ -72,12 +72,12 @@ export default function CheckoutPage() {
         const data = await intentRes.json();
         setClientSecret(data.clientSecret);
       } else {
-        // 3️⃣ COD Flow
+        // 3️ COD Flow
         dispatch(clearCart());
         router.push("/order-success");
       }
     } catch (err) {
-      console.error("❌ Order error:", err);
+      console.error(" Order error:", err);
       alert("Something went wrong.");
     } finally {
       setOrderLoading(false);
@@ -199,7 +199,7 @@ function StripeCheckoutForm({
       return;
     }
 
-    console.log("✅ Payment succeeded:", paymentIntent);
+    console.log(" Payment succeeded:", paymentIntent);
     dispatch(clearCart());
     router.push("/order-success");
   };

@@ -1,6 +1,5 @@
 'use client'
-// components/DressStyleBrowse.js
-import { useRouter } from "next/navigation"; // ✅ Correct import for App Router
+import { useRouter } from "next/navigation"; //  Correct import for App Router
 import React from "react";
 
 const DressStyleBrowse = () => {

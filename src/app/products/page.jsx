@@ -4,12 +4,12 @@
 
 import Image from "next/image";
 import { Suspense, useState } from "react";
-import { useSearchParams } from "next/navigation"; // ✅ Correct hook for App Router
+import { useSearchParams } from "next/navigation"; //  Correct hook for App Router
 import { useGetProductsQuery } from "../../store/shopCoApi";
 import Link from "next/link";
 
 export function ProductsContent () {
-  const searchParams = useSearchParams(); // ✅ useSearchParams for App Router
+  const searchParams = useSearchParams(); //  useSearchParams for App Router
   const [selectedCategory, setSelectedCategory] = useState([]);
   const dressStyle = searchParams.get("dressStyle"); // Get the dressStyle from URL
 
@@ -166,7 +166,7 @@ export function ProductsContent () {
           )}
 
           {/* Pagination */}
-          <div className="flex justify-center mt-10 gap-2">
+          {/* <div className="flex justify-center mt-10 gap-2">
             {Array.from({ length: totalPages }, (_, i) => (
               <button
                 key={i + 1}
@@ -178,7 +178,7 @@ export function ProductsContent () {
                 {i + 1}
               </button>
             ))}
-          </div>
+          </div> */}
         </main>
       </div>
     </section>

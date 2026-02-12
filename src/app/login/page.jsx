@@ -1,4 +1,3 @@
-// app/login/page.jsx
 "use client";
 import React, { useState, useEffect, Suspense } from "react";
 import { useDispatch } from "react-redux";
@@ -41,7 +40,7 @@ export const LoginContent = () => {
     }
   };
 
-  // ✅ Correct social login flow (Frontend → Provider → Backend Callback → Frontend Success)
+  //  Correct social login flow (Frontend → Provider → Backend Callback → Frontend Success)
   const handleSocialLogin = (provider) => {
     let authUrl = "";
     // const backendBaseUrl = "https://shop-co.up.railway.app";

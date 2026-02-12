@@ -15,8 +15,8 @@ import ClientOnly from "./ClientOnly";
 
 const navLinks = [
   { name: "On Sale", href: "/" },
-  { name: "New Arrivals", href: "/products?dressStyle=party" },
-  { name: "Brands", href: "/products?dressStyle=formal" },
+  { name: "New Arrivals", href: "/products?dressStyle=formal" },
+  { name: "Brands", href: "/products?dressStyle=casual" },
 ];
 
 const Header = () => {
