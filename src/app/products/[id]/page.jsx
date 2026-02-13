@@ -44,35 +44,35 @@ export default function ProductDetails() {
   };
 
 
-  const increaseQuantity = () => {
-    const newQty = quantity + 1;
-    setQuantity(newQty);
+  // const increaseQuantity = () => {
+  //   const newQty = quantity + 1;
+  //   setQuantity(newQty);
 
-    const exists = cartItems.find((item) => item.productId === product._id);
-    if (exists) {
-      dispatch(updateQuantity({ productId: product._id, quantity: newQty }));
-    } else {
-      dispatch(
-        addToCart({
-          productId: product._id,
-          quantity: newQty,
-          price: product.price,
-        })
-      );
-    }
-  };
+  //   const exists = cartItems.find((item) => item.productId === product._id);
+  //   if (exists) {
+  //     dispatch(updateQuantity({ productId: product._id, quantity: newQty }));
+  //   } else {
+  //     dispatch(
+  //       addToCart({
+  //         productId: product._id,
+  //         quantity: newQty,
+  //         price: product.price,
+  //       })
+  //     );
+  //   }
+  // };
 
-  const decreaseQuantity = () => {
-    if (quantity > 1) {
-      const newQty = quantity - 1;
-      setQuantity(newQty);
+  // const decreaseQuantity = () => {
+  //   if (quantity > 1) {
+  //     const newQty = quantity - 1;
+  //     setQuantity(newQty);
 
-      const exists = cartItems.find((item) => item.productId === product._id);
-      if (exists) {
-        dispatch(updateQuantity({ productId: product._id, quantity: newQty }));
-      }
-    }
-  };
+  //     const exists = cartItems.find((item) => item.productId === product._id);
+  //     if (exists) {
+  //       dispatch(updateQuantity({ productId: product._id, quantity: newQty }));
+  //     }
+  //   }
+  // };
 
 const handleAddToCart = () => {
   toast.success("Item Added To Cart")
@@ -213,7 +213,7 @@ const handleAddToCart = () => {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mt-4">
                 {/* Quantity Selector */}
                 <ProtectedRoute>
-                  <div className="flex flex-1 items-center justify-center  space-x-10 bg-[rgba(240,240,240,1)] font-bold rounded-full px-4 py-2">
+                  {/* <div className="flex flex-1 items-center justify-center  space-x-10 bg-[rgba(240,240,240,1)] font-bold rounded-full px-4 py-2">
                     <button
                       className="text-lg text-gray-700"
                       onClick={decreaseQuantity}
@@ -227,12 +227,12 @@ const handleAddToCart = () => {
                     >
                       +
                     </button>
-                  </div>
+                  </div> */}
 
                   {/* Add to Cart Button */}
                   <button
                     onClick={handleAddToCart}
-                    className="px-6 py-3 flex-1/2 bg-black text-white rounded-full ml-4"
+                    className="px-6 py-3 flex-1/2 bg-black  text-white rounded-full "
                   >
                     Add to Cart
                   </button>

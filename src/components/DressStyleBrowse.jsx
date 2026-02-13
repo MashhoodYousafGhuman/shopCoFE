@@ -50,7 +50,7 @@ const DressStyleBrowse = () => {
           className="relative rounded-lg overflow-hidden h-40 sm:h-48 cursor-pointer bg-white shadow-md col-span-2"
         >
           <img
-            src="/coatMan.png"
+            src="/party.png"
             alt="Party"
             className="object-cover w-full h-full"
           />

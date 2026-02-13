@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <ClientOnly>
-      <header className="sticky top-0 z-50  w-full border-b border-gray-200 bg-white">
+      <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white">
         {/* Top Promo Bar */}
         <GuestRoute redirectTo="/">
           <div className="w-full bg-black text-white text-[11px] sm:text-sm py-2 text-center">
@@ -47,6 +47,7 @@ const Header = () => {
         {/* Main Header */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
+            {/* Left Side - Logo */}
             <Link
               href="/"
               className="text-2xl font-extrabold tracking-tight text-gray-900 flex items-center"
@@ -54,8 +55,8 @@ const Header = () => {
               <span>Xoc</span>
             </Link>
 
-            {/* Navigation - Desktop */}
-            <nav className="hidden lg:flex items-center space-x-4">
+            {/* Centered Navigation */}
+            <nav className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -67,19 +68,7 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* Search Bar - Desktop */}
-            <div className="hidden lg:flex items-center flex-1 mx-8 max-w-sm">
-              <div className="relative w-full">
-                <input
-                  type="text"
-                  placeholder="Search for products..."
-                  className="w-full rounded-full border border-gray-300 py-2 pl-4 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-black"
-                />
-                <MagnifyingGlassIcon className="absolute right-3 top-2.5 h-5 w-5 text-gray-400" />
-              </div>
-            </div>
-
-            {/* Icons & User Actions */}
+            {/* Right Side Icons */}
             <div className="flex items-center space-x-4">
               {/* Cart */}
               <Link
@@ -102,8 +91,8 @@ const Header = () => {
                 <UserIcon className="h-6 w-6" />
               </Link>
 
-              {/* Auth buttons (client only) */}
-              <div className="hidden items-center  md:flex space-x-2">
+              {/* Auth Buttons */}
+              <div className="hidden md:flex items-center space-x-2">
                 {!isAuthenticated ? (
                   <>
                     <Link href="/login">
@@ -130,7 +119,7 @@ const Header = () => {
                 )}
               </div>
 
-              {/* Mobile Menu button (safe outside ClientOnly) */}
+              {/* Mobile Menu Button */}
               <button
                 className="md:hidden p-2"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -154,20 +143,7 @@ const Header = () => {
                   {link.name}
                 </Link>
               ))}
-              {/* <div className="flex items-center space-x-2 mt-2">
-                <Link
-                  href="/cart"
-                  className="p-2 text-gray-700 hover:text-black"
-                >
-                  <ShoppingCartIcon className="h-6 w-6" />
-                </Link>
-                <Link
-                  href="/profile"
-                  className="p-2 text-gray-700 hover:text-black"
-                >
-                  <UserIcon className="h-6 w-6" />
-                </Link>
-              </div> */}
+
               {!isAuthenticated ? (
                 <div className="flex flex-col space-y-2 mt-2">
                   <Link href="/login">
@@ -198,6 +174,7 @@ const Header = () => {
       </header>
     </ClientOnly>
   );
+
 };
 
 export default Header;

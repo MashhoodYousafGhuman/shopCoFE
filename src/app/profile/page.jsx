@@ -15,7 +15,7 @@ const ProfilePage = () => {
 
     return (
       <div className="max-w-3xl mx-auto mt-10 px-4 py-6 bg-red-100 text-red-700 rounded-lg border border-red-300">
-        <h2 className="text-lg font-semibold mb-2">Error</h2>
+        <h2 className="text-lg font-semibold mb-2"> Make sure you are logged in to access profile page</h2>
         <p>{errorMessage}</p>
       </div>
     );

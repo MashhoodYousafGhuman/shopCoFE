@@ -28,29 +28,13 @@ const RegisterPageContent = () => {
     }
   };
 
-  //  Social signup/login (same as login page)
-  const handleSocialLogin = (provider) => {
-    let authUrl = "";
-    const backendBaseUrl = "http://localhost:8000"; // update for local
-    // const backendBaseUrl = "https://shop-co.up.railway.app"; // update for prod
-
-    if (provider === "google") {
-      authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=401722037920-pvpb77879ckhem9bj0edc7roaeobo1fl.apps.googleusercontent.com&redirect_uri=${backendBaseUrl}/auth/google/callback&response_type=code&scope=openid%20email%20profile`;
-    } else if (provider === "github") {
-      authUrl = `https://github.com/login/oauth/authorize?client_id=Ov23liAg806tTu7AYuz4&redirect_uri=${backendBaseUrl}/auth/github/callback&scope=user:email%20read:user`;
-    } else if (provider === "discord") {
-      authUrl = `https://discord.com/api/oauth2/authorize?client_id=1416000478172549221&redirect_uri=${backendBaseUrl}/auth/discord/callback&response_type=code&scope=identify%20email`;
-    }
-
-    window.location.href = authUrl;
-  };
 
   return (
     <GuestRoute redirectTo="/">
       <div className="min-h-screen flex items-center justify-center bg-[rgba(240,238,237,1)] px-4">
         <form
           onSubmit={handleSubmit}
-          className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md"
+          className="bg-white p-8 mb-25 rounded-2xl shadow-md w-full max-w-md"
         >
           <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
 
@@ -107,46 +91,6 @@ const RegisterPageContent = () => {
             {isLoading ? "Signing up..." : "Sign Up"}
           </button>
 
-          {/* Divider */}
-          <div className="flex items-center my-4">
-            <hr className="flex-grow border-gray-300" />
-            <span className="px-2 text-gray-500">OR</span>
-            <hr className="flex-grow border-gray-300" />
-          </div>
-
-          {/* Social SignUp/Login Buttons */}
-          <div className="space-y-3">
-            <button
-              type="button"
-              onClick={() => handleSocialLogin("google")}
-              className="w-full py-2 rounded-lg border border-gray-300 flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors"
-            >
-              <img src="/icons8-google.svg" alt="Google" className="w-5 h-5" />
-              Continue with Google
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleSocialLogin("github")}
-              className="w-full py-2 rounded-lg border border-gray-300 flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors"
-            >
-              <img src="/icons8-github.svg" alt="GitHub" className="w-5 h-5" />
-              Continue with GitHub
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleSocialLogin("discord")}
-              className="w-full py-2 rounded-lg border border-gray-300 flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors"
-            >
-              <img
-                src="/icons8-discord.svg"
-                alt="Discord"
-                className="w-5 h-5"
-              />
-              Continue with Discord
-            </button>
-          </div>
         </form>
       </div>
     </GuestRoute>
