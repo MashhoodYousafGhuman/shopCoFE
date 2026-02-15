@@ -13,6 +13,8 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
+
 export default function CheckoutPage() {
   const { items, totalAmount } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -140,10 +142,7 @@ export default function CheckoutPage() {
 
       {/* Stripe Payment Form */}
       {clientSecret ? (
-        <Elements
-          stripe={loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY)}
-          options={{ clientSecret }}
-        >
+        <Elements stripe={stripePromise} options={{ clientSecret }}>
           <StripeCheckoutForm
             orderId={orderId}
             clientSecret={clientSecret}
@@ -188,7 +187,7 @@ function StripeCheckoutForm({
           card,
           billing_details: { name: formData.city },
         },
-      }
+      },
     );
 
     if (error) {
@@ -204,7 +203,7 @@ function StripeCheckoutForm({
 
   return (
     <div className="space-y-4">
-      <CardElement className="p-3 border rounded" />
+      <CardElement className="p-3 border rounded w-full " />
       <button
         onClick={handlePayment}
         disabled={loading}
