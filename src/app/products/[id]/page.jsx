@@ -242,7 +242,7 @@ const handleAddToCart = () => {
           </div>
         </main>
       </div>
-      <ProductReviews productId={id} />
+      {/* <ProductReviews productId={id} /> */}
       <AlsoLike />
     </section>
   );

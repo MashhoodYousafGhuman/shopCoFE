@@ -1,4 +1,3 @@
-// hooks/useUpload.js
 import { useUploadImagesMutation } from "../store/shopCoApi";
 
 export const useUpload = () => {

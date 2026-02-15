@@ -14,7 +14,7 @@ const saveCart = (cart) => {
   }
 };
 
-// 🔑 helper to normalize variants array into a string
+//  helper to normalize variants array into a string
 const getVariantKey = (variantArr) => {
   if (!variantArr) return "default";
   return variantArr.map((v) => `${v.name}:${v.value}`).join("|");

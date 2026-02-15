@@ -43,7 +43,7 @@
           {/* Right Image */}
           <div className="  flex justify-center   w-full items-center">
             <Image
-              src="/hm1.png" // Change this path
+              src="/hm1.png" 
               alt="Fashion Models"
               width={400}
               height={200}

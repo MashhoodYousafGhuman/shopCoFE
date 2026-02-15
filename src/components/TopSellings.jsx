@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useGetProductsQuery } from "../store/shopCoApi"; // update if needed
+import { useGetProductsQuery } from "../store/shopCoApi";
 import { useSearchParams } from "next/navigation";
 export default function TopSellings() {
   const { data, isLoading, error } = useGetProductsQuery({ limit: 4 });
@@ -32,7 +32,6 @@ export default function TopSellings() {
 
             return (
               <div key={product._id} className="rounded-2xl p-4 text-left">
-                {/* Using layout="responsive" with width/height makes image scalable */}
                 <div className="relative w-full h-64 rounded-2xl">
                   <Image
                     src={image}
@@ -44,15 +43,6 @@ export default function TopSellings() {
                 </div>
 
                 <h3 className="mt-4 font-semibold text-sm">{product.title}</h3>
-                {/* <h3 className="mt-4 font-semibold text-sm">{product.category}</h3> */}
-
-                {/* <div className="flex items-center mt-2 text-yellow-400 text-sm">
-                  {"★".repeat(Math.floor(rating))}
-                  {"☆".repeat(5 - Math.floor(rating))}
-                  <span className="text-gray-600 ml-2">
-                    {rating.toFixed(1)}/5
-                  </span>
-                </div> */}
 
                 <div className="mt-2 flex items-center gap-2">
                   <span className="font-bold text-lg">${product.price}</span>

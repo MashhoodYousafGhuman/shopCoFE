@@ -38,8 +38,8 @@ export default function ProductReviews({ productId }) {
   const matchedOrder = orders?.find((order) =>
     order.items.some(
       (item) =>
-        item.productId === productId || // in case BE ever sends string
-        item.productId?._id === productId // when BE sends object
+        item.productId === productId || 
+        item.productId?._id === productId 
     )
   );
 
@@ -69,9 +69,9 @@ export default function ProductReviews({ productId }) {
       console.log("Review created:", res);
     } catch (error) {
       const errMsg =
-        error?.data?.message || // agar backend se message aa raha ho
-        error?.error || // RTK Query ka default error string
-        " Something went wrong"; // fallback
+        error?.data?.message || 
+        error?.error || 
+        " Something went wrong"; 
       toast.error(errMsg);
       console.error("Review error:", error);
     } finally {

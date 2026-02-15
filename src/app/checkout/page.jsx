@@ -61,13 +61,13 @@ export default function CheckoutPage() {
       if (formData.paymentMethod === "stripe") {
         // 2️ Create PaymentIntent
         const intentRes = await fetch(
-          // "https://shop-co.up.railway.app/payments/create-intent",
-          "http://localhost:8000/payments/create-intent",
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/payments/create-intent`, // production
+          // "http://localhost:8000/payments/create-intent", local
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ orderId: res._id }),
-          }
+          },
         );
         const data = await intentRes.json();
         setClientSecret(data.clientSecret);

@@ -162,7 +162,7 @@ const Header = () => {
                 </div>
               ) : (
                 <button
-                  className="px-4 py-2 rounded-lg border text-sm"
+                  className="px-4 cursor-pointer py-2 rounded-lg border text-sm"
                   onClick={() => dispatch(logout())}
                 >
                   Logout

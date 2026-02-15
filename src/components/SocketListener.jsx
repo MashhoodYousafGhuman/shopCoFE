@@ -1,4 +1,3 @@
-// components/SocketListener.jsx
 "use client";
 
 import { useEffect } from "react";
@@ -7,12 +6,15 @@ import { toast } from "react-toastify";
 
 export default function SocketListener() {
   useEffect(() => {
-    // const socket = io("https://shop-co.up.railway.app");
-    const socket = io("http://localhost:8000");
+    const socket = io(process.env.NEXT_PUBLIC_BACKEND_URL, {
+      transports: ["websocket"], // required for Render
+    });
+
+    // const socket = io("http://localhost:8000"); // local
 
     socket.on("orderNotification", (data) => {
-      console.log("📦 Order Received (Global):", data.message);
-      toast.info(`📦 New Order: ${data.message}`);
+      console.log("Order Received (Global):", data.message);
+      toast.info(`New Order: ${data.message}`);
     });
 
     return () => {
