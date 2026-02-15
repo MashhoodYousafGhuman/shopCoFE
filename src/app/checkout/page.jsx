@@ -141,9 +141,7 @@ export default function CheckoutPage() {
       {/* Stripe Payment Form */}
       {clientSecret ? (
         <Elements
-          stripe={loadStripe(
-            "pk_test_51S65AID6GutWOdXGTMGNjSOyoFKUW83y9LYWHunEwfyDwmPnFPbCnzadPMbYDK9gavUnSysX1avmDfwOledtLFJQ00cMwOg2Kd"
-          )}
+          stripe={loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY)}
           options={{ clientSecret }}
         >
           <StripeCheckoutForm
